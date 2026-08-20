@@ -51,24 +51,62 @@ export const REASON_COLORS = {
   "Watch": { c: "#6b7280", bg: "#1f2937" },
 };
 
-// ── Typography Styles ───────────────────────────────────────
-export const TYPOGRAPHY = {
-  // Page title
-  pageTitle: {
+// ── Spacing Scale ──────────────────────────────────────────
+export const SPACING = {
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 20,
+  xxl: 24,
+};
+
+// ── All Styles ─────────────────────────────────────────────
+export const STYLES = {
+  // ═══ CONTAINER & LAYOUT ═══
+  container: {
+    fontFamily: "Aboreto",
+    background: COLORS.BG,
+    minHeight: "100vh",
+    color: COLORS.TEXT,
+  },
+
+  // ═══ HEADER ═══
+  header: {
+    background: "#000",
+    padding: `16px ${SPACING.xxl}px`,
+    borderBottom: `1px solid ${COLORS.BORDER}`,
+  },
+
+  headerTitle: {
+    margin: 0,
     fontSize: 18,
     fontWeight: 700,
     letterSpacing: "-0.3px",
     color: COLORS.TEXT,
   },
 
-  // Subtitle
   pageSubtitle: {
     fontSize: 11,
     color: COLORS.TEXT3,
     margin: "3px 0 0",
   },
 
-  // Tab label
+  // ═══ TABS ═══
+  tabs: {
+    background: "#111",
+    borderBottom: `1px solid ${COLORS.BORDER}`,
+    padding: `0 ${SPACING.xxl}px`,
+    display: "flex",
+  },
+
+  tab: {
+    padding: "10px 18px",
+    border: "none",
+    background: "transparent",
+    cursor: "pointer",
+  },
+
   tabLabel: {
     fontSize: 13,
     fontWeight: 400,
@@ -79,7 +117,17 @@ export const TYPOGRAPHY = {
     fontWeight: 700,
   },
 
-  // Legend
+  // ═══ LEGEND ═══
+  legendContainer: {
+    background: "#111",
+    padding: `7px ${SPACING.xxl}px`,
+    borderBottom: `1px solid ${COLORS.BORDER}`,
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 16,
+    alignItems: "center",
+  },
+
   legendLabel: {
     fontSize: 10,
     color: COLORS.TEXT3,
@@ -92,7 +140,13 @@ export const TYPOGRAPHY = {
     color: COLORS.TEXT2,
   },
 
-  // Section descriptions
+  // ═══ MAIN CONTENT ═══
+  mainContent: {
+    padding: `${SPACING.xl}px ${SPACING.xxl}px`,
+    maxWidth: 1200,
+    margin: "0 auto",
+  },
+
   sectionDesc: {
     fontSize: 12,
     color: COLORS.TEXT3,
@@ -105,7 +159,33 @@ export const TYPOGRAPHY = {
     margin: "0 0 18px",
   },
 
-  // Grid column header
+  // ═══ GRID LAYOUT ═══
+  gridContainer: {
+    overflowX: "auto",
+  },
+
+  gridTable: {
+    display: "grid",
+    gap: "1px",
+    background: COLORS.BORDER,
+    border: `1px solid ${COLORS.BORDER}`,
+    borderRadius: 10,
+    overflow: "hidden",
+    minWidth: 600,
+  },
+
+  gridCorner: {
+    background: COLORS.SURF,
+  },
+
+  gridColHeaderCell: {
+    background: COLORS.SURF,
+    padding: "11px 14px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+
   gridColHeader: {
     fontSize: 12,
     fontWeight: 700,
@@ -119,7 +199,14 @@ export const TYPOGRAPHY = {
     background: "rgba(0,0,0,0.35)",
   },
 
-  // Row header (vertical text)
+  gridRowHeader: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "12px 4px",
+    minHeight: 80,
+  },
+
   rowHeader: {
     fontSize: 10,
     fontWeight: 700,
@@ -130,7 +217,46 @@ export const TYPOGRAPHY = {
     whiteSpace: "nowrap",
   },
 
-  // Grid/Pipeline card
+  gridCell: {
+    background: COLORS.SURF,
+    padding: 10,
+    maxHeight: 380,
+    overflowY: "auto",
+  },
+
+  gridCellEmpty: {
+    minHeight: 60,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: COLORS.BORDER,
+    fontSize: 20,
+  },
+
+  gridCardContent: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 7,
+  },
+
+  // ═══ CARDS (PIPELINE) ═══
+  card: {
+    background: COLORS.SURF2,
+    border: `1px solid ${COLORS.BORDER}`,
+    borderRadius: 6,
+    overflow: "hidden",
+  },
+
+  cardClickable: {
+    padding: "8px 10px",
+    cursor: "pointer",
+  },
+
+  cardExpanded: {
+    padding: "0 10px 10px",
+    borderTop: `1px solid ${COLORS.BORDER}`,
+  },
+
   cardRole: {
     fontSize: 11,
     fontWeight: 600,
@@ -169,266 +295,7 @@ export const TYPOGRAPHY = {
     color: COLORS.TEXT3,
   },
 
-  // Kanban card
-  kanbanRole: {
-    fontSize: 11,
-    fontWeight: 700,
-    color: COLORS.TEXT,
-    marginBottom: 2,
-    lineHeight: 1.4,
-  },
-
-  kanbanCompany: {
-    fontSize: 10,
-    color: COLORS.TEXT2,
-    marginBottom: 2,
-  },
-
-  kanbanSalary: {
-    fontSize: 10,
-    fontWeight: 600,
-    marginBottom: 7,
-  },
-
-  kanbanStatus: {
-    fontSize: 9,
-    fontWeight: 700,
-    padding: "1px 5px",
-    borderRadius: 8,
-  },
-
-  kanbanStatusLabel: {
-    fontSize: 9,
-    color: COLORS.TEXT3,
-  },
-
-  // Parking zone
-  parkingZoneTitle: {
-    fontSize: 12,
-    fontWeight: 700,
-    color: COLORS.TEXT,
-  },
-
-  parkingZoneSubtitle: {
-    fontSize: 10,
-    color: COLORS.TEXT3,
-  },
-
-  parkingCardRole: {
-    fontSize: 12,
-    fontWeight: 600,
-    color: COLORS.TEXT,
-  },
-
-  parkingCardCompany: {
-    fontSize: 10,
-    color: COLORS.TEXT2,
-    fontWeight: 600,
-  },
-
-  parkingCardLocation: {
-    fontSize: 10,
-    color: COLORS.TEXT3,
-  },
-
-  parkingCardSalary: {
-    fontSize: 10,
-    color: COLORS.TEXT3,
-  },
-
-  // Buttons and links
-  primaryButton: {
-    fontSize: 10,
-    fontWeight: 700,
-    padding: "4px 10px",
-    color: "#000",
-    borderRadius: 4,
-    textDecoration: "none",
-  },
-
-  parkingToggleButton: {
-    fontSize: 13,
-    fontWeight: 600,
-    color: COLORS.TEXT2,
-  },
-
-  parkingToggleSub: {
-    fontSize: 11,
-  },
-
-  kanbanButton: {
-    fontSize: 9,
-    fontWeight: 700,
-    padding: "3px 0",
-    borderRadius: 4,
-  },
-};
-
-// ── Spacing Scale ──────────────────────────────────────────
-export const SPACING = {
-  xs: 4,
-  sm: 8,
-  md: 12,
-  lg: 16,
-  xl: 20,
-  xxl: 24,
-};
-
-// ── Component Styles ───────────────────────────────────────
-export const COMPONENT_STYLES = {
-  container: {
-    fontFamily: "Aboreto",
-    background: COLORS.BG,
-    minHeight: "100vh",
-    color: COLORS.TEXT,
-  },
-
-  header: {
-    background: "#000",
-    padding: `16px ${SPACING.xxl}px`,
-    borderBottom: `1px solid ${COLORS.BORDER}`,
-  },
-
-  headerTitle: {
-    margin: 0,
-  },
-
-  tabs: {
-    background: "#111",
-    borderBottom: `1px solid ${COLORS.BORDER}`,
-    padding: `0 ${SPACING.xxl}px`,
-    display: "flex",
-  },
-
-  tab: {
-    padding: "10px 18px",
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
-  },
-
-  legendContainer: {
-    background: "#111",
-    padding: `7px ${SPACING.xxl}px`,
-    borderBottom: `1px solid ${COLORS.BORDER}`,
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 16,
-    alignItems: "center",
-  },
-
-  mainContent: {
-    padding: `${SPACING.xl}px ${SPACING.xxl}px`,
-    maxWidth: 1200,
-    margin: "0 auto",
-  },
-
-  gridContainer: {
-    overflowX: "auto",
-  },
-
-  gridTable: {
-    display: "grid",
-    gap: "1px",
-    background: COLORS.BORDER,
-    border: `1px solid ${COLORS.BORDER}`,
-    borderRadius: 10,
-    overflow: "hidden",
-    minWidth: 600,
-  },
-
-  gridCorner: {
-    background: COLORS.SURF,
-  },
-
-  gridColHeaderCell: {
-    background: COLORS.SURF,
-    padding: "11px 14px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-
-  gridRowHeader: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "12px 4px",
-    minHeight: 80,
-  },
-
-  gridCell: {
-    background: COLORS.SURF,
-    padding: 10,
-    maxHeight: 380,
-    overflowY: "auto",
-  },
-
-  gridCellEmpty: {
-    minHeight: 60,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: COLORS.BORDER,
-    fontSize: 20,
-  },
-
-  gridCardContent: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 7,
-  },
-
-  card: {
-    background: COLORS.SURF2,
-    border: `1px solid ${COLORS.BORDER}`,
-    borderRadius: 6,
-    overflow: "hidden",
-  },
-
-  cardClickable: {
-    padding: "8px 10px",
-    cursor: "pointer",
-  },
-
-  cardExpanded: {
-    padding: "0 10px 10px",
-    borderTop: `1px solid ${COLORS.BORDER}`,
-  },
-
-  parkingButton: {
-    width: "100%",
-    padding: "10px 16px",
-    marginTop: 16,
-    background: COLORS.SURF,
-    border: `1px dashed #444`,
-    borderRadius: 8,
-    cursor: "pointer",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-
-  parkingContainer: {
-    marginTop: 12,
-    padding: "16px",
-    background: COLORS.SURF,
-    border: `1px dashed #444`,
-    borderRadius: 8,
-  },
-
-  parkingDivider: {
-    height: 1,
-    background: COLORS.BORDER,
-    margin: "14px 0",
-  },
-
-  parkingZoneContent: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 6,
-  },
-
+  // ═══ KANBAN ═══
   kanbanGrid: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
@@ -465,6 +332,123 @@ export const COMPONENT_STYLES = {
     padding: "24px 0",
   },
 
+  kanbanRole: {
+    fontSize: 11,
+    fontWeight: 700,
+    color: COLORS.TEXT,
+    marginBottom: 2,
+    lineHeight: 1.4,
+  },
+
+  kanbanCompany: {
+    fontSize: 10,
+    color: COLORS.TEXT2,
+    marginBottom: 2,
+  },
+
+  kanbanSalary: {
+    fontSize: 10,
+    fontWeight: 600,
+    marginBottom: 7,
+  },
+
+  kanbanStatus: {
+    fontSize: 9,
+    fontWeight: 700,
+    padding: "1px 5px",
+    borderRadius: 8,
+  },
+
+  kanbanStatusLabel: {
+    fontSize: 9,
+    color: COLORS.TEXT3,
+  },
+
+  kanbanButton: {
+    fontSize: 9,
+    fontWeight: 700,
+    padding: "3px 0",
+    borderRadius: 4,
+  },
+
+  // ═══ PARKING LOT ═══
+  parkingButton: {
+    width: "100%",
+    padding: "10px 16px",
+    marginTop: 16,
+    background: COLORS.SURF,
+    border: `1px dashed #444`,
+    borderRadius: 8,
+    cursor: "pointer",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  parkingToggleButton: {
+    fontSize: 13,
+    fontWeight: 600,
+    color: COLORS.TEXT2,
+  },
+
+  parkingToggleSub: {
+    fontSize: 11,
+  },
+
+  parkingContainer: {
+    marginTop: 12,
+    padding: "16px",
+    background: COLORS.SURF,
+    border: `1px dashed #444`,
+    borderRadius: 8,
+  },
+
+  parkingDivider: {
+    height: 1,
+    background: COLORS.BORDER,
+    margin: "14px 0",
+  },
+
+  parkingZoneContent: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 6,
+  },
+
+  parkingZoneTitle: {
+    fontSize: 12,
+    fontWeight: 700,
+    color: COLORS.TEXT,
+  },
+
+  parkingZoneSubtitle: {
+    fontSize: 10,
+    color: COLORS.TEXT3,
+  },
+
+  parkingCardRole: {
+    fontSize: 12,
+    fontWeight: 600,
+    color: COLORS.TEXT,
+  },
+
+  parkingCardCompany: {
+    fontSize: 10,
+    color: COLORS.TEXT2,
+    fontWeight: 600,
+  },
+
+  parkingCardLocation: {
+    fontSize: 10,
+    color: COLORS.TEXT3,
+  },
+
+  parkingCardSalary: {
+    fontSize: 10,
+    color: COLORS.TEXT3,
+  },
+
+  // ═══ SKIPPED CARDS ═══
   skippedCard: {
     background: COLORS.SURF2,
     border: `1px solid ${COLORS.BORDER}`,
@@ -478,5 +462,15 @@ export const COMPONENT_STYLES = {
     fontStyle: "italic",
     lineHeight: 1.4,
     marginBottom: 5,
+  },
+
+  // ═══ BUTTONS & LINKS ═══
+  primaryButton: {
+    fontSize: 10,
+    fontWeight: 700,
+    padding: "4px 10px",
+    color: "#000",
+    borderRadius: 4,
+    textDecoration: "none",
   },
 };

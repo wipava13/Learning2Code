@@ -8,9 +8,7 @@ import {
   KANBAN_NEXT as KNEXT,
   KANBAN_PREV as KPREV,
   REASON_COLORS as RC,
-  TYPOGRAPHY as TYP,
-  COMPONENT_STYLES as STYLES,
-  SPACING,
+  STYLES,
 } from "./styles";
 
 const MAIN_COLS = ["Qualified","Reach","Aspirational"];
@@ -95,8 +93,8 @@ export default function JobTracker() {
 
       {/* Header */}
       <div style={STYLES.header}>
-        <h1 style={{ ...STYLES.headerTitle, ...TYP.pageTitle }}>Wilson's Job Pipeline</h1>
-        <p style={TYP.pageSubtitle}>
+        <h1 style={{ ...STYLES.headerTitle, ...STYLES.pageTitle }}>Wilson's Job Pipeline</h1>
+        <p style={STYLES.pageSubtitle}>
           {MAIN.length} active · {PARKING.length} in parking lot · {SKIPPED.length} passed on
         </p>
       </div>
@@ -106,21 +104,21 @@ export default function JobTracker() {
         {[["pipeline","Pipeline"],["kanban","Applications"],["passedOn","Passed On"]].map(([v,lbl]) => (
           <button key={v} onClick={() => setView(v)} style={{
             ...STYLES.tab,
+            ...STYLES.tabLabel,
             borderBottom: view===v ? `2.5px solid ${COLORS.TEXT}` : "2.5px solid transparent",
             color: view===v ? COLORS.TEXT : COLORS.TEXT3,
             fontWeight: view===v ? 700 : 400,
-            fontSize: 13,
           }}>{lbl}</button>
         ))}
       </div>
 
       {/* Ladder legend */}
       <div style={STYLES.legendContainer}>
-        <span style={TYP.legendLabel}>LADDER</span>
+        <span style={STYLES.legendLabel}>LADDER</span>
         {Object.entries(LC).map(([name,{c}]) => (
           <div key={name} style={{ display:"flex", alignItems:"center", gap:5 }}>
             <div style={{ width:8, height:8, borderRadius:2, background:c }} />
-            <span style={TYP.legendItemName}>{name}</span>
+            <span style={STYLES.legendItemName}>{name}</span>
           </div>
         ))}
       </div>
@@ -132,8 +130,8 @@ export default function JobTracker() {
           <Grid jobs={MAIN} cols={MAIN_COLS} rows={ROWS} isSkipped={false} expanded={expanded} onToggle={toggle} />
 
           <button onClick={() => setParkingOpen(p=>!p)} style={STYLES.parkingButton}>
-            <span style={TYP.parkingToggleButton}>🅿️  Parking Lot — {PARKING.length} roles</span>
-            <span style={TYP.parkingToggleSub}>{parkingOpen ? "▲ collapse" : "▼ expand"}</span>
+            <span style={STYLES.parkingToggleButton}>🅿️  Parking Lot — {PARKING.length} roles</span>
+            <span style={STYLES.parkingToggleSub}>{parkingOpen ? "▲ collapse" : "▼ expand"}</span>
           </button>
 
           {parkingOpen && (
@@ -149,7 +147,7 @@ export default function JobTracker() {
 
         {/* ══ KANBAN ══ */}
         {view === "kanban" && <>
-          <p style={TYP.sectionDescKanban}>
+          <p style={STYLES.sectionDescKanban}>
             Active pipeline jobs + submitted applications. Use arrows to move cards between stages.
           </p>
           <div style={STYLES.kanbanGrid}>
@@ -170,12 +168,12 @@ export default function JobTracker() {
                       return (
                         <div key={job.id} style={{ ...STYLES.card, borderLeft:`4px solid ${lc.c}` }}>
                           <div style={{ ...STYLES.cardClickable, padding:"9px 11px" }}>
-                            <div style={TYP.kanbanRole}>{job.role}</div>
-                            <div style={TYP.kanbanCompany}>{job.company}</div>
-                            <div style={{ ...TYP.kanbanSalary, color:lc.c }}>{job.salary}</div>
+                            <div style={STYLES.kanbanRole}>{job.role}</div>
+                            <div style={STYLES.kanbanCompany}>{job.company}</div>
+                            <div style={{ ...STYLES.kanbanSalary, color:lc.c }}>{job.salary}</div>
                             <div style={{ display:"flex", gap:4, marginBottom:7, alignItems:"center" }}>
-                              <span style={{...TYP.kanbanStatus, background:sc.hbg, color:sc.c }}>{job.status}</span>
-                              {job.id===7 && <span style={TYP.kanbanStatusLabel}>outreach sent</span>}
+                              <span style={{...STYLES.kanbanStatus, background:sc.hbg, color:sc.c }}>{job.status}</span>
+                              {job.id===7 && <span style={STYLES.kanbanStatusLabel}>outreach sent</span>}
                             </div>
                             <div style={{ display:"flex", gap:4 }}>
                               {prv && <button onClick={()=>move(job.id,prv)} style={{...STYLES.kanbanButton, flex:1, border:`1px solid ${COLORS.BORDER}`, background:COLORS.SURF2, color:KC[prv].c }}>← {KC[prv].label}</button>}
@@ -195,7 +193,7 @@ export default function JobTracker() {
 
         {/* ══ PASSED ON ══ */}
         {view === "passedOn" && <>
-          <p style={TYP.sectionDesc}>
+          <p style={STYLES.sectionDesc}>
             Jobs reviewed and passed on. Columns reflect qualification level had the skip reason not applied.
           </p>
           <Grid jobs={SKIPPED} cols={SKIP_COLS} rows={ROWS} isSkipped={true} expanded={expanded} onToggle={toggle} />
@@ -221,7 +219,7 @@ function Grid({ jobs, cols, rows, isSkipped, expanded, onToggle }) {
           const count = jobs.filter(j => getCol(j) === col).length;
           return (
             <div key={col} style={{...STYLES.gridColHeaderCell, background:sc.hbg }}>
-              <span style={{...TYP.gridColHeader, color:sc.c }}>{col}</span>
+              <span style={{...STYLES.gridColHeader, color:sc.c }}>{col}</span>
               <span style={{...STYLES.gridColCount, color:sc.c }}>{count}</span>
             </div>
           );
@@ -232,7 +230,7 @@ function Grid({ jobs, cols, rows, isSkipped, expanded, onToggle }) {
           const pc = PC[row];
           return [
             <div key={`${row}-h`} style={{...STYLES.gridRowHeader, background:pc.hbg }}>
-              <span style={{...TYP.rowHeader, color:pc.c }}>{row}</span>
+              <span style={{...STYLES.rowHeader, color:pc.c }}>{row}</span>
             </div>,
             ...cols.map(col => {
               const cellJobs = jobs
@@ -265,17 +263,17 @@ function GridCard({ job, expanded, onToggle }) {
   return (
     <div style={{...STYLES.card, borderLeft:`4px solid ${lc.c}`}}>
       <div onClick={() => onToggle(job.id)} style={STYLES.cardClickable}>
-        <div style={TYP.cardRole}>{job.role}</div>
-        <div style={TYP.cardCompany}>{job.company}</div>
+        <div style={STYLES.cardRole}>{job.role}</div>
+        <div style={STYLES.cardCompany}>{job.company}</div>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-          <span style={{...TYP.cardSalary, color: job.salaryMin>0 ? lc.c : COLORS.TEXT3 }}>{job.salary}</span>
-          <span style={TYP.cardToggleIcon}>{expanded?"▲":"▼"}</span>
+          <span style={{...STYLES.cardSalary, color: job.salaryMin>0 ? lc.c : COLORS.TEXT3 }}>{job.salary}</span>
+          <span style={STYLES.cardToggleIcon}>{expanded?"▲":"▼"}</span>
         </div>
       </div>
       {expanded && (
         <div style={STYLES.cardExpanded}>
-          <div style={TYP.cardLocation}>{job.loc}</div>
-          <p style={TYP.cardNote}>{job.note}</p>
+          <div style={STYLES.cardLocation}>{job.loc}</div>
+          <p style={STYLES.cardNote}>{job.note}</p>
           {job.url && <a href={job.url} target="_blank" rel="noopener noreferrer" style={{...STYLES.primaryButton, background:lc.c }}>View →</a>}
         </div>
       )}
@@ -288,9 +286,9 @@ function SkippedCard({ job }) {
   const lc = LC[job.ladder]||{c:"#6b7280"};
   return (
     <div style={{...STYLES.skippedCard, borderLeft:`4px solid ${lc.c}`}}>
-      <div style={TYP.cardRole}>{job.role}</div>
-      <div style={TYP.cardCompany}>{job.company} · {job.salary}</div>
-      <div style={TYP.cardLocation}>{job.loc}</div>
+      <div style={STYLES.cardRole}>{job.role}</div>
+      <div style={STYLES.cardCompany}>{job.company} · {job.salary}</div>
+      <div style={STYLES.cardLocation}>{job.loc}</div>
       <div style={STYLES.skippedCardSkipReason}>{job.skipReason}</div>
       {job.url && <a href={job.url} target="_blank" rel="noopener noreferrer" style={{fontSize:9, color:lc.c, textDecoration:"none", display:"block", marginTop:5, fontWeight:600 }}>View →</a>}
     </div>
@@ -303,8 +301,8 @@ function ParkingZone({ label, sub, jobs, expanded, onToggle }) {
     <div>
       <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:10 }}>
         <div>
-          <div style={TYP.parkingZoneTitle}>{label}</div>
-          <div style={TYP.parkingZoneSubtitle}>{sub}</div>
+          <div style={STYLES.parkingZoneTitle}>{label}</div>
+          <div style={STYLES.parkingZoneSubtitle}>{sub}</div>
         </div>
         <span style={{marginLeft:"auto", fontSize:10, fontWeight:700, padding:"2px 7px", borderRadius:10, background:COLORS.SURF2, color:COLORS.TEXT2 }}>{jobs.length}</span>
       </div>
@@ -319,13 +317,13 @@ function ParkingZone({ label, sub, jobs, expanded, onToggle }) {
               <div onClick={() => onToggle(job.id)} style={{ padding:"9px 12px", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:8 }}>
                 <div style={{ flex:1 }}>
                   <div style={{ display:"flex", alignItems:"center", gap:5, flexWrap:"wrap", marginBottom:3 }}>
-                    <span style={TYP.parkingCardRole}>{job.role}</span>
+                    <span style={STYLES.parkingCardRole}>{job.role}</span>
                     <span style={{ fontSize:9, fontWeight:700, padding:"1px 6px", borderRadius:8, background:sc.hbg, color:sc.c }}>~{job.softStatus}</span>
                     <span style={{ fontSize:9, fontWeight:600, padding:"1px 6px", borderRadius:8, background:rc.bg, color:rc.c }}>{job.reason}</span>
                   </div>
                   <div style={{ display:"flex", gap:8, fontSize:10, color:COLORS.TEXT3, flexWrap:"wrap" }}>
-                    <span style={TYP.parkingCardCompany}>{job.company}</span>
-                    <span style={TYP.parkingCardLocation}>{job.loc}</span>
+                    <span style={STYLES.parkingCardCompany}>{job.company}</span>
+                    <span style={STYLES.parkingCardLocation}>{job.loc}</span>
                     <span style={{color:lc.c}}>{job.salary}</span>
                   </div>
                 </div>
@@ -333,7 +331,7 @@ function ParkingZone({ label, sub, jobs, expanded, onToggle }) {
               </div>
               {isOpen && (
                 <div style={STYLES.cardExpanded}>
-                  <p style={TYP.cardNote}>{job.note}</p>
+                  <p style={STYLES.cardNote}>{job.note}</p>
                   {job.url && <a href={job.url} target="_blank" rel="noopener noreferrer" style={{...STYLES.primaryButton, background:lc.c }}>View →</a>}
                 </div>
               )}
