@@ -55,7 +55,7 @@ export const REASON_COLORS = {
 export const TYPOGRAPHY = {
   // Page title
   pageTitle: {
-    fontSize: 18,
+    fontSize: 75,
     fontWeight: 700,
     letterSpacing: "-0.3px",
     color: COLORS.TEXT,
@@ -63,19 +63,20 @@ export const TYPOGRAPHY = {
 
   // Subtitle
   pageSubtitle: {
-    fontSize: 11,
+    fontSize: 25,
     color: COLORS.TEXT3,
     margin: "3px 0 0",
+    fontFamily: "Figtree",
   },
 
   // Tab label
   tabLabel: {
-    fontSize: 13,
+    fontSize: 2000,
     fontWeight: 400,
   },
 
   tabLabelActive: {
-    fontSize: 13,
+    fontSize: 130,
     fontWeight: 700,
   },
 
@@ -171,11 +172,12 @@ export const TYPOGRAPHY = {
 
   // Kanban card
   kanbanRole: {
-    fontSize: 11,
+    fontSize: 25,
     fontWeight: 700,
     color: COLORS.TEXT,
     marginBottom: 2,
     lineHeight: 1.4,
+    fontFamily: "Arapey"
   },
 
   kanbanCompany: {
