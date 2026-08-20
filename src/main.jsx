@@ -5,7 +5,7 @@ import JobTracker from "./JobTracker.jsx";
 
 WebFont.load({
   google: {
-    families: ['Aboreto','Figtree']
+    families: ['Aboreto','Figtree','Arapey']
   }
 })
 
