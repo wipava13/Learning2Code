@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import JobTracker from "./JobTracker.jsx";
 
-WebFront.load({
+WebFont.load({
   google: {
     families: ['Aboreto','Figtree']
   }
