@@ -1,54 +1,17 @@
 import { useState } from "react";
-
-// ── Design tokens ─────────────────────────────────────────────
-const BG      = "#0f0f0f";
-const SURF    = "#1a1a1a";
-const SURF2   = "#222222";
-const BORDER  = "#2a2a2a";
-const TEXT    = "#f0f0f0";
-const TEXT2   = "#9ca3af";
-const TEXT3   = "#4b5563";
-
-// Career ladder colors (the second data layer)
-const LC = {
-  "Tech/Ed":              { c: "#ffdf00" },
-  "AI Policy":            { c: "#00b100" },
-  "Government Affairs":   { c: "#c457f3" },
-  "Product/Project Mgmt": { c: "#FF4040" },
-  "Gaming/Technical":     { c: "#40f5ff" },
-  "Consulting":           { c: "#94a3b8" },
-};
-
-// Status column colors
-const SC = {
-  "Qualified":     { c: "#03be00", hbg: "#1A1A1A" },
-  "Reach":         { c: "#fe8300", hbg: "#2A2A2A" },
-  "Aspirational":  { c: "#03b8ff", hbg: "#1A1A1A" },
-  "Over Qualified":{ c: "#ff0000", hbg: "#1A1A1A" },
-};
-
-// Row header colors
-const PC = {
-  "US-Based":               { c: "#F0F0F0", hbg: "#1A1A1A" },
-  "Colombia/International": { c: "#F0F0F0", hbg: "#1A1A1A" },
-};
-
-// Kanban columns
-const KC = {
-  todo:       { c: "#FFFFFF", label: "To-Do"       },
-  inprogress: { c: "#60a5fa", label: "In Progress"  },
-  sent:       { c: "#4ade80", label: "Sent"         },
-};
-const KNEXT = { todo:"inprogress", inprogress:"sent",  sent:null        };
-const KPREV = { todo:null,         inprogress:"todo",  sent:"inprogress" };
-
-// Parking modifier badge colors
-const RC = {
-  "Career Coach": { c: "#67e8f9", bg: "#0c4a6e" },
-  "Clearance":    { c: "#fca5a5", bg: "#450a0a" },
-  "Closed":       { c: "#6b7280", bg: "#1f2937" },
-  "Watch":        { c: "#6b7280", bg: "#1f2937" },
-};
+import {
+  COLORS,
+  LADDER_COLORS as LC,
+  STATUS_COLORS as SC,
+  ROW_COLORS as PC,
+  KANBAN_COLORS as KC,
+  KANBAN_NEXT as KNEXT,
+  KANBAN_PREV as KPREV,
+  REASON_COLORS as RC,
+  TYPOGRAPHY as TYP,
+  COMPONENT_STYLES as STYLES,
+  SPACING,
+} from "./styles";
 
 const MAIN_COLS = ["Qualified","Reach","Aspirational"];
 const SKIP_COLS = ["Over Qualified","Qualified","Reach"]; // Aspirational exists but hidden
@@ -128,60 +91,56 @@ export default function JobTracker() {
   const move   = (id, col) => setKanban(p => ({ ...p, [id]: col }));
 
   return (
-    <div style={{ fontFamily:"Aboreto", background:BG, minHeight:"100vh", color:TEXT }}>
+    <div style={STYLES.container}>
 
       {/* Header */}
-      <div style={{ background:"#000", padding:"16px 24px", borderBottom:`1px solid ${BORDER}` }}>
-        <h1 style={{ margin:0, fontSize:18, fontWeight:700, letterSpacing:"-0.3px" }}>Wilson's Job Pipeline</h1>
-        <p style={{ margin:"3px 0 0", fontSize:11, color:TEXT3 }}>
+      <div style={STYLES.header}>
+        <h1 style={{ ...STYLES.headerTitle, ...TYP.pageTitle }}>Wilson's Job Pipeline</h1>
+        <p style={TYP.pageSubtitle}>
           {MAIN.length} active · {PARKING.length} in parking lot · {SKIPPED.length} passed on
         </p>
       </div>
 
       {/* Tabs */}
-      <div style={{ background:"#111", borderBottom:`1px solid ${BORDER}`, padding:"0 24px", display:"flex" }}>
+      <div style={STYLES.tabs}>
         {[["pipeline","Pipeline"],["kanban","Applications"],["passedOn","Passed On"]].map(([v,lbl]) => (
           <button key={v} onClick={() => setView(v)} style={{
-            padding:"10px 18px", border:"none",
-            borderBottom: view===v ? `2.5px solid ${TEXT}` : "2.5px solid transparent",
-            background:"transparent", color: view===v ? TEXT : TEXT3,
-            fontWeight: view===v ? 700 : 400, fontSize:13, cursor:"pointer",
+            ...STYLES.tab,
+            borderBottom: view===v ? `2.5px solid ${COLORS.TEXT}` : "2.5px solid transparent",
+            color: view===v ? COLORS.TEXT : COLORS.TEXT3,
+            fontWeight: view===v ? 700 : 400,
+            fontSize: 13,
           }}>{lbl}</button>
         ))}
       </div>
 
       {/* Ladder legend */}
-      <div style={{ background:"#111", padding:"7px 24px", borderBottom:`1px solid ${BORDER}`, display:"flex", flexWrap:"wrap", gap:16, alignItems:"center" }}>
-        <span style={{ fontSize:10, color:TEXT3, fontWeight:600, letterSpacing:"0.06em" }}>LADDER</span>
+      <div style={STYLES.legendContainer}>
+        <span style={TYP.legendLabel}>LADDER</span>
         {Object.entries(LC).map(([name,{c}]) => (
           <div key={name} style={{ display:"flex", alignItems:"center", gap:5 }}>
             <div style={{ width:8, height:8, borderRadius:2, background:c }} />
-            <span style={{ fontSize:11, color:TEXT2 }}>{name}</span>
+            <span style={TYP.legendItemName}>{name}</span>
           </div>
         ))}
       </div>
 
-      <div style={{ padding:"20px 24px", maxWidth:1200, margin:"0 auto" }}>
+      <div style={STYLES.mainContent}>
 
         {/* ══ PIPELINE ══ */}
         {view === "pipeline" && <>
           <Grid jobs={MAIN} cols={MAIN_COLS} rows={ROWS} isSkipped={false} expanded={expanded} onToggle={toggle} />
 
-          <button onClick={() => setParkingOpen(p=>!p)} style={{
-            width:"100%", padding:"10px 16px", marginTop:16,
-            background:SURF, border:`1px dashed #444`, borderRadius:8,
-            cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center",
-            color:TEXT2, fontSize:13, fontWeight:600,
-          }}>
-            <span>🅿️  Parking Lot — {PARKING.length} roles</span>
-            <span style={{ fontSize:11 }}>{parkingOpen ? "▲ collapse" : "▼ expand"}</span>
+          <button onClick={() => setParkingOpen(p=>!p)} style={STYLES.parkingButton}>
+            <span style={TYP.parkingToggleButton}>🅿️  Parking Lot — {PARKING.length} roles</span>
+            <span style={TYP.parkingToggleSub}>{parkingOpen ? "▲ collapse" : "▼ expand"}</span>
           </button>
 
           {parkingOpen && (
-            <div style={{ marginTop:12, padding:"16px", background:SURF, border:`1px dashed #444`, borderRadius:8 }}>
+            <div style={STYLES.parkingContainer}>
               <ParkingZone label="⏳ Waiting for Sorting" sub="Career Coach follow-up needed before firm placement"
                 jobs={PARKING.filter(j=>j.zone==="coach")} expanded={expanded} onToggle={toggle} />
-              <div style={{ height:1, background:BORDER, margin:"14px 0" }} />
+              <div style={STYLES.parkingDivider} />
               <ParkingZone label="🔒 Long-term Parking"   sub="Closed, clearance-blocked, or watching"
                 jobs={PARKING.filter(j=>j.zone==="longterm")} expanded={expanded} onToggle={toggle} />
             </div>
@@ -190,41 +149,43 @@ export default function JobTracker() {
 
         {/* ══ KANBAN ══ */}
         {view === "kanban" && <>
-          <p style={{ fontSize:12, color:TEXT3, margin:"0 0 18px" }}>
+          <p style={TYP.sectionDescKanban}>
             Active pipeline jobs + submitted applications. Use arrows to move cards between stages.
           </p>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:14 }}>
+          <div style={STYLES.kanbanGrid}>
             {["todo","inprogress","sent"].map(col => {
               const cc = KC[col];
               const colJobs = kJobs.filter(j => (kanban[j.id]||"todo") === col);
               return (
                 <div key={col}>
-                  <div style={{ padding:"9px 13px", borderRadius:"7px 7px 0 0", background:SURF, border:`1px solid ${BORDER}`, borderBottom:"none", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-                    <span style={{ fontSize:12, fontWeight:700, color:cc.c }}>{cc.label}</span>
+                  <div style={{...STYLES.kanbanColumn, color: cc.c }}>
+                    <span style={{ fontSize:12, fontWeight:700 }}>{cc.label}</span>
                     <span style={{ fontSize:10, fontWeight:700, width:18, height:18, borderRadius:"50%", background:cc.c, color:"#000", display:"flex", alignItems:"center", justifyContent:"center" }}>{colJobs.length}</span>
                   </div>
-                  <div style={{ minHeight:200, padding:9, border:`1px solid ${BORDER}`, borderTop:"none", borderRadius:"0 0 7px 7px", background:BG, display:"flex", flexDirection:"column", gap:7 }}>
+                  <div style={STYLES.kanbanColumnContent}>
                     {colJobs.map(job => {
                       const lc = LC[job.ladder]||{c:"#6b7280"};
                       const sc = SC[job.status]||SC.Qualified;
                       const nxt = KNEXT[col]; const prv = KPREV[col];
                       return (
-                        <div key={job.id} style={{ background:SURF, border:`1px solid ${BORDER}`, borderLeft:`4px solid ${lc.c}`, borderRadius:6, padding:"9px 11px" }}>
-                          <div style={{ fontSize:11, fontWeight:700, color:TEXT, marginBottom:2, lineHeight:1.4 }}>{job.role}</div>
-                          <div style={{ fontSize:10, color:TEXT2, marginBottom:2 }}>{job.company}</div>
-                          <div style={{ fontSize:10, color:lc.c, fontWeight:600, marginBottom:7 }}>{job.salary}</div>
-                          <div style={{ display:"flex", gap:4, marginBottom:7, alignItems:"center" }}>
-                            <span style={{ fontSize:9, fontWeight:700, padding:"1px 5px", borderRadius:8, background:sc.hbg, color:sc.c }}>{job.status}</span>
-                            {job.id===7 && <span style={{ fontSize:9, color:TEXT3 }}>outreach sent</span>}
-                          </div>
-                          <div style={{ display:"flex", gap:4 }}>
-                            {prv && <button onClick={()=>move(job.id,prv)} style={{ flex:1, padding:"3px 0", border:`1px solid ${BORDER}`, background:SURF2, color:KC[prv].c, borderRadius:4, fontSize:9, fontWeight:700, cursor:"pointer" }}>← {KC[prv].label}</button>}
-                            {nxt && <button onClick={()=>move(job.id,nxt)} style={{ flex:1, padding:"3px 0", border:`1px solid ${BORDER}`, background:SURF2, color:KC[nxt].c, borderRadius:4, fontSize:9, fontWeight:700, cursor:"pointer" }}>→ {KC[nxt].label}</button>}
+                        <div key={job.id} style={{ ...STYLES.card, borderLeft:`4px solid ${lc.c}` }}>
+                          <div style={{ ...STYLES.cardClickable, padding:"9px 11px" }}>
+                            <div style={TYP.kanbanRole}>{job.role}</div>
+                            <div style={TYP.kanbanCompany}>{job.company}</div>
+                            <div style={{ ...TYP.kanbanSalary, color:lc.c }}>{job.salary}</div>
+                            <div style={{ display:"flex", gap:4, marginBottom:7, alignItems:"center" }}>
+                              <span style={{...TYP.kanbanStatus, background:sc.hbg, color:sc.c }}>{job.status}</span>
+                              {job.id===7 && <span style={TYP.kanbanStatusLabel}>outreach sent</span>}
+                            </div>
+                            <div style={{ display:"flex", gap:4 }}>
+                              {prv && <button onClick={()=>move(job.id,prv)} style={{...STYLES.kanbanButton, flex:1, border:`1px solid ${COLORS.BORDER}`, background:COLORS.SURF2, color:KC[prv].c }}>← {KC[prv].label}</button>}
+                              {nxt && <button onClick={()=>move(job.id,nxt)} style={{...STYLES.kanbanButton, flex:1, border:`1px solid ${COLORS.BORDER}`, background:COLORS.SURF2, color:KC[nxt].c }}>→ {KC[nxt].label}</button>}
+                            </div>
                           </div>
                         </div>
                       );
                     })}
-                    {!colJobs.length && <div style={{ fontSize:11, color:TEXT3, textAlign:"center", padding:"24px 0" }}>Empty</div>}
+                    {!colJobs.length && <div style={STYLES.kanbanColumnEmpty}>Empty</div>}
                   </div>
                 </div>
               );
@@ -234,7 +195,7 @@ export default function JobTracker() {
 
         {/* ══ PASSED ON ══ */}
         {view === "passedOn" && <>
-          <p style={{ fontSize:12, color:TEXT3, margin:"0 0 16px" }}>
+          <p style={TYP.sectionDesc}>
             Jobs reviewed and passed on. Columns reflect qualification level had the skip reason not applied.
           </p>
           <Grid jobs={SKIPPED} cols={SKIP_COLS} rows={ROWS} isSkipped={true} expanded={expanded} onToggle={toggle} />
@@ -249,24 +210,19 @@ export default function JobTracker() {
 function Grid({ jobs, cols, rows, isSkipped, expanded, onToggle }) {
   const getCol = j => isSkipped ? j.col : j.status;
   return (
-    <div style={{ overflowX:"auto" }}>
-      <div style={{
-        display:"grid",
-        gridTemplateColumns:`80px ${"1fr ".repeat(cols.length).trim()}`,
-        gap:"1px", background:BORDER,
-        border:`1px solid ${BORDER}`, borderRadius:10, overflow:"hidden", minWidth:600,
-      }}>
+    <div style={STYLES.gridContainer}>
+      <div style={{...STYLES.gridTable, gridTemplateColumns:`80px ${"1fr ".repeat(cols.length).trim()}`}}>
         {/* Corner */}
-        <div style={{ background:SURF }} />
+        <div style={STYLES.gridCorner} />
 
         {/* Column headers */}
         {cols.map(col => {
           const sc = SC[col]||SC.Qualified;
           const count = jobs.filter(j => getCol(j) === col).length;
           return (
-            <div key={col} style={{ background:sc.hbg, padding:"11px 14px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-              <span style={{ fontSize:12, fontWeight:700, color:sc.c }}>{col}</span>
-              <span style={{ fontSize:10, fontWeight:700, padding:"2px 7px", borderRadius:10, background:"rgba(0,0,0,0.35)", color:sc.c }}>{count}</span>
+            <div key={col} style={{...STYLES.gridColHeaderCell, background:sc.hbg }}>
+              <span style={{...TYP.gridColHeader, color:sc.c }}>{col}</span>
+              <span style={{...STYLES.gridColCount, color:sc.c }}>{count}</span>
             </div>
           );
         })}
@@ -275,18 +231,18 @@ function Grid({ jobs, cols, rows, isSkipped, expanded, onToggle }) {
         {rows.map(row => {
           const pc = PC[row];
           return [
-            <div key={`${row}-h`} style={{ background:pc.hbg, display:"flex", alignItems:"center", justifyContent:"center", padding:"12px 4px", minHeight:80 }}>
-              <span style={{ fontSize:10, fontWeight:700, color:pc.c, writingMode:"vertical-rl", textOrientation:"mixed", transform:"rotate(180deg)", letterSpacing:"0.06em", whiteSpace:"nowrap" }}>{row}</span>
+            <div key={`${row}-h`} style={{...STYLES.gridRowHeader, background:pc.hbg }}>
+              <span style={{...TYP.rowHeader, color:pc.c }}>{row}</span>
             </div>,
             ...cols.map(col => {
               const cellJobs = jobs
                 .filter(j => getCol(j) === col && j.row === row)
                 .sort((a,b) => b.salaryMin - a.salaryMin);
               return (
-                <div key={`${row}-${col}`} style={{ background:SURF, padding:10, maxHeight:380, overflowY:"auto" }}>
+                <div key={`${row}-${col}`} style={STYLES.gridCell}>
                   {cellJobs.length === 0
-                    ? <div style={{ minHeight:60, display:"flex", alignItems:"center", justifyContent:"center", color:BORDER, fontSize:20 }}>—</div>
-                    : <div style={{ display:"flex", flexDirection:"column", gap:7 }}>
+                    ? <div style={STYLES.gridCellEmpty}>—</div>
+                    : <div style={STYLES.gridCardContent}>
                         {cellJobs.map(job => isSkipped
                           ? <SkippedCard key={job.id} job={job} />
                           : <GridCard key={job.id} job={job} expanded={expanded===job.id} onToggle={onToggle} />
@@ -307,20 +263,20 @@ function Grid({ jobs, cols, rows, isSkipped, expanded, onToggle }) {
 function GridCard({ job, expanded, onToggle }) {
   const lc = LC[job.ladder]||{c:"#6b7280"};
   return (
-    <div style={{ background:SURF2, border:`1px solid ${BORDER}`, borderLeft:`4px solid ${lc.c}`, borderRadius:6, overflow:"hidden" }}>
-      <div onClick={() => onToggle(job.id)} style={{ padding:"8px 10px", cursor:"pointer" }}>
-        <div style={{ fontSize:11, fontWeight:600, color:TEXT, lineHeight:1.3, marginBottom:3 }}>{job.role}</div>
-        <div style={{ fontSize:10, color:TEXT2, marginBottom:2 }}>{job.company}</div>
+    <div style={{...STYLES.card, borderLeft:`4px solid ${lc.c}`}}>
+      <div onClick={() => onToggle(job.id)} style={STYLES.cardClickable}>
+        <div style={TYP.cardRole}>{job.role}</div>
+        <div style={TYP.cardCompany}>{job.company}</div>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-          <span style={{ fontSize:10, color: job.salaryMin>0 ? lc.c : TEXT3, fontWeight:600 }}>{job.salary}</span>
-          <span style={{ fontSize:9, color:TEXT3 }}>{expanded?"▲":"▼"}</span>
+          <span style={{...TYP.cardSalary, color: job.salaryMin>0 ? lc.c : COLORS.TEXT3 }}>{job.salary}</span>
+          <span style={TYP.cardToggleIcon}>{expanded?"▲":"▼"}</span>
         </div>
       </div>
       {expanded && (
-        <div style={{ padding:"0 10px 10px", borderTop:`1px solid ${BORDER}` }}>
-          <div style={{ fontSize:10, color:TEXT3, margin:"6px 0 5px" }}>{job.loc}</div>
-          <p style={{ fontSize:11, color:TEXT2, lineHeight:1.55, margin:"0 0 8px" }}>{job.note}</p>
-          {job.url && <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display:"inline-block", padding:"4px 10px", background:lc.c, color:"#000", borderRadius:4, fontSize:10, fontWeight:700, textDecoration:"none" }}>View →</a>}
+        <div style={STYLES.cardExpanded}>
+          <div style={TYP.cardLocation}>{job.loc}</div>
+          <p style={TYP.cardNote}>{job.note}</p>
+          {job.url && <a href={job.url} target="_blank" rel="noopener noreferrer" style={{...STYLES.primaryButton, background:lc.c }}>View →</a>}
         </div>
       )}
     </div>
@@ -331,12 +287,12 @@ function GridCard({ job, expanded, onToggle }) {
 function SkippedCard({ job }) {
   const lc = LC[job.ladder]||{c:"#6b7280"};
   return (
-    <div style={{ background:SURF2, border:`1px solid ${BORDER}`, borderLeft:`4px solid ${lc.c}`, borderRadius:6, padding:"8px 10px" }}>
-      <div style={{ fontSize:11, fontWeight:600, color:TEXT, lineHeight:1.3, marginBottom:2 }}>{job.role}</div>
-      <div style={{ fontSize:10, color:TEXT2, marginBottom:2 }}>{job.company} · {job.salary}</div>
-      <div style={{ fontSize:10, color:TEXT3, marginBottom:5 }}>{job.loc}</div>
-      <div style={{ fontSize:10, color:"#6b7280", fontStyle:"italic", lineHeight:1.4 }}>{job.skipReason}</div>
-      {job.url && <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ fontSize:9, color:lc.c, textDecoration:"none", display:"block", marginTop:5, fontWeight:600 }}>View →</a>}
+    <div style={{...STYLES.skippedCard, borderLeft:`4px solid ${lc.c}`}}>
+      <div style={TYP.cardRole}>{job.role}</div>
+      <div style={TYP.cardCompany}>{job.company} · {job.salary}</div>
+      <div style={TYP.cardLocation}>{job.loc}</div>
+      <div style={STYLES.skippedCardSkipReason}>{job.skipReason}</div>
+      {job.url && <a href={job.url} target="_blank" rel="noopener noreferrer" style={{fontSize:9, color:lc.c, textDecoration:"none", display:"block", marginTop:5, fontWeight:600 }}>View →</a>}
     </div>
   );
 }
@@ -347,38 +303,38 @@ function ParkingZone({ label, sub, jobs, expanded, onToggle }) {
     <div>
       <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:10 }}>
         <div>
-          <div style={{ fontSize:12, fontWeight:700, color:TEXT }}>{label}</div>
-          <div style={{ fontSize:10, color:TEXT3 }}>{sub}</div>
+          <div style={TYP.parkingZoneTitle}>{label}</div>
+          <div style={TYP.parkingZoneSubtitle}>{sub}</div>
         </div>
-        <span style={{ marginLeft:"auto", fontSize:10, fontWeight:700, padding:"2px 7px", borderRadius:10, background:SURF2, color:TEXT2 }}>{jobs.length}</span>
+        <span style={{marginLeft:"auto", fontSize:10, fontWeight:700, padding:"2px 7px", borderRadius:10, background:COLORS.SURF2, color:COLORS.TEXT2 }}>{jobs.length}</span>
       </div>
-      <div style={{ display:"flex", flexDirection:"column", gap:6 }}>
+      <div style={STYLES.parkingZoneContent}>
         {jobs.sort((a,b)=>b.salaryMin-a.salaryMin).map(job => {
           const lc = LC[job.ladder]||{c:"#6b7280"};
           const sc = SC[job.softStatus]||SC.Reach;
           const rc = RC[job.reason]||RC["Closed"];
           const isOpen = expanded === job.id;
           return (
-            <div key={job.id} style={{ background:SURF2, border:`1px solid ${BORDER}`, borderLeft:`4px solid ${lc.c}`, borderRadius:6 }}>
+            <div key={job.id} style={{...STYLES.card, borderLeft:`4px solid ${lc.c}`}}>
               <div onClick={() => onToggle(job.id)} style={{ padding:"9px 12px", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:8 }}>
                 <div style={{ flex:1 }}>
                   <div style={{ display:"flex", alignItems:"center", gap:5, flexWrap:"wrap", marginBottom:3 }}>
-                    <span style={{ fontSize:12, fontWeight:600, color:TEXT }}>{job.role}</span>
+                    <span style={TYP.parkingCardRole}>{job.role}</span>
                     <span style={{ fontSize:9, fontWeight:700, padding:"1px 6px", borderRadius:8, background:sc.hbg, color:sc.c }}>~{job.softStatus}</span>
                     <span style={{ fontSize:9, fontWeight:600, padding:"1px 6px", borderRadius:8, background:rc.bg, color:rc.c }}>{job.reason}</span>
                   </div>
-                  <div style={{ display:"flex", gap:8, fontSize:10, color:TEXT3, flexWrap:"wrap" }}>
-                    <span style={{ fontWeight:600, color:TEXT2 }}>{job.company}</span>
-                    <span>{job.loc}</span>
-                    <span style={{ color:lc.c }}>{job.salary}</span>
+                  <div style={{ display:"flex", gap:8, fontSize:10, color:COLORS.TEXT3, flexWrap:"wrap" }}>
+                    <span style={TYP.parkingCardCompany}>{job.company}</span>
+                    <span style={TYP.parkingCardLocation}>{job.loc}</span>
+                    <span style={{color:lc.c}}>{job.salary}</span>
                   </div>
                 </div>
-                <span style={{ color:TEXT3, fontSize:11, flexShrink:0 }}>{isOpen?"▲":"▼"}</span>
+                <span style={{ color:COLORS.TEXT3, fontSize:11, flexShrink:0 }}>{isOpen?"▲":"▼"}</span>
               </div>
               {isOpen && (
-                <div style={{ padding:"0 12px 12px", borderTop:`1px solid ${BORDER}` }}>
-                  <p style={{ fontSize:11, color:TEXT2, lineHeight:1.6, margin:"8px 0 8px" }}>{job.note}</p>
-                  {job.url && <a href={job.url} target="_blank" rel="noopener noreferrer" style={{ display:"inline-block", padding:"4px 10px", background:lc.c, color:"#000", borderRadius:4, fontSize:10, fontWeight:700, textDecoration:"none" }}>View →</a>}
+                <div style={STYLES.cardExpanded}>
+                  <p style={TYP.cardNote}>{job.note}</p>
+                  {job.url && <a href={job.url} target="_blank" rel="noopener noreferrer" style={{...STYLES.primaryButton, background:lc.c }}>View →</a>}
                 </div>
               )}
             </div>
