@@ -128,7 +128,7 @@ export default function JobTracker() {
   const move   = (id, col) => setKanban(p => ({ ...p, [id]: col }));
 
   return (
-    <div style={{ fontFamily:"'Inter',-apple-system,sans-serif", background:BG, minHeight:"100vh", color:TEXT }}>
+    <div style={{ fontFamily:"Aboreto", background:BG, minHeight:"100vh", color:TEXT }}>
 
       {/* Header */}
       <div style={{ background:"#000", padding:"16px 24px", borderBottom:`1px solid ${BORDER}` }}>
