@@ -11,31 +11,31 @@ const TEXT3   = "#4b5563";
 
 // Career ladder colors (the second data layer)
 const LC = {
-  "Tech/Ed":              { c: "#facc15" },
-  "AI Policy":            { c: "#4ade80" },
-  "Government Affairs":   { c: "#d4a76a" },
-  "Product/Project Mgmt": { c: "#f87171" },
-  "Gaming/Technical":     { c: "#2dd4bf" },
+  "Tech/Ed":              { c: "#ffdf00" },
+  "AI Policy":            { c: "#00b100" },
+  "Government Affairs":   { c: "#c457f3" },
+  "Product/Project Mgmt": { c: "#FF4040" },
+  "Gaming/Technical":     { c: "#40f5ff" },
   "Consulting":           { c: "#94a3b8" },
 };
 
 // Status column colors
 const SC = {
-  "Qualified":     { c: "#4ade80", hbg: "#052e16" },
-  "Reach":         { c: "#60a5fa", hbg: "#0c1a3a" },
-  "Aspirational":  { c: "#fbbf24", hbg: "#2c1a05" },
-  "Over Qualified":{ c: "#a78bfa", hbg: "#1e1040" },
+  "Qualified":     { c: "#03be00", hbg: "#1A1A1A" },
+  "Reach":         { c: "#fe8300", hbg: "#2A2A2A" },
+  "Aspirational":  { c: "#03b8ff", hbg: "#1A1A1A" },
+  "Over Qualified":{ c: "#ff0000", hbg: "#1A1A1A" },
 };
 
 // Row header colors
 const PC = {
-  "US-Based":               { c: "#818cf8", hbg: "#1e1b4b" },
-  "Colombia/International": { c: "#34d399", hbg: "#022c22" },
+  "US-Based":               { c: "#F0F0F0", hbg: "#1A1A1A" },
+  "Colombia/International": { c: "#F0F0F0", hbg: "#1A1A1A" },
 };
 
 // Kanban columns
 const KC = {
-  todo:       { c: "#6b7280", label: "To-Do"       },
+  todo:       { c: "#FFFFFF", label: "To-Do"       },
   inprogress: { c: "#60a5fa", label: "In Progress"  },
   sent:       { c: "#4ade80", label: "Sent"         },
 };
