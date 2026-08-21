@@ -90,6 +90,7 @@ export const STYLES = {
     fontSize: 11,
     color: COLORS.TEXT3,
     margin: "3px 0 0",
+    fontFamily: "Figtree",
   },
 
   // ═══ TABS ═══
@@ -338,6 +339,7 @@ export const STYLES = {
     color: COLORS.TEXT,
     marginBottom: 2,
     lineHeight: 1.4,
+    fontFamily: "Arapey",
   },
 
   kanbanCompany: {
