@@ -1,0 +1,244 @@
+/* ── Adobe Caslon Pro ─────────────────────────────────────── */
+@font-face {
+  font-family: 'Adobe Caslon Pro';
+  src: url('./fonts/Adobe Caslon Pro/Caslon Pro Regular.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Adobe Caslon Pro';
+  src: url('./fonts/Adobe Caslon Pro/Caslon Pro Italic.OTF') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Adobe Caslon Pro';
+  src: url('./fonts/Adobe Caslon Pro/Caslon Pro Semibold.OTF') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Adobe Caslon Pro';
+  src: url('./fonts/Adobe Caslon Pro/Caslon Pro Semibold Italic.OTF') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Adobe Caslon Pro';
+  src: url('./fonts/Adobe Caslon Pro/Caslon Pro Bold.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Adobe Caslon Pro';
+  src: url('./fonts/Adobe Caslon Pro/Caslon Pro Bold Italic.OTF') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* ── Bookmania ────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Bookmania';
+  src: url('./fonts/Bookmania/Bookmania Light.OTF') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bookmania';
+  src: url('./fonts/Bookmania/Bookmania Light Italic.OTF') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bookmania';
+  src: url('./fonts/Bookmania/Bookmania Regular.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bookmania';
+  src: url('./fonts/Bookmania/Bookmania Regular Italic.OTF') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bookmania';
+  src: url('./fonts/Bookmania/Bookmania Semibold.OTF') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bookmania';
+  src: url('./fonts/Bookmania/Bookmania Semibold Italic.OTF') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bookmania';
+  src: url('./fonts/Bookmania/Bookmania Bold.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bookmania';
+  src: url('./fonts/Bookmania/Bookmania Bold Italic.OTF') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* ── Brothers ─────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Brothers';
+  src: url('./fonts/Brothers/Brothers OT Regular.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Brothers';
+  src: url('./fonts/Brothers/Brothers OT Bold.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ── Mrs. Eaves ───────────────────────────────────────────── */
+@font-face {
+  font-family: 'Mrs. Eaves';
+  src: url('./fonts/Mrs. Eaves/Mrs Eaves Roman.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mrs. Eaves';
+  src: url('./fonts/Mrs. Eaves/Mrs Eaves Italic.OTF') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mrs. Eaves';
+  src: url('./fonts/Mrs. Eaves/Mrs Eaves Bold.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mrs. Eaves';
+  src: url('./fonts/Mrs. Eaves/Mrs Eaves Bold Italic.OTF') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mrs. Eaves Small Caps';
+  src: url('./fonts/Mrs. Eaves/Mrs Eaves Roman Small Caps.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ── Orpheus Pro ──────────────────────────────────────────── */
+@font-face {
+  font-family: 'Orpheus Pro';
+  src: url('./fonts/Orpheus/Orpheus Pro Regular.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orpheus Pro';
+  src: url('./fonts/Orpheus/Orpheus Pro Italic.OTF') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Orpheus Pro';
+  src: url('./fonts/Orpheus/Orpheus Pro Medium.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orpheus Pro';
+  src: url('./fonts/Orpheus/Orpheus Pro Medium Condensed.OTF') format('opentype');
+  font-weight: 500;
+  font-stretch: condensed;
+}
+
+@font-face {
+  font-family: 'Orpheus Pro';
+  src: url('./fonts/Orpheus/Orpheus Pro Bold.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orpheus Pro Condensed';
+  src: url('./fonts/Orpheus/Orpheus Pro Condensed.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orpheus Pro Condensed';
+  src: url('./fonts/Orpheus/Orpheus Pro Bold Condensed.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ── Plantin MT ───────────────────────────────────────────── */
+@font-face {
+  font-family: 'Plantin MT';
+  src: url('./fonts/Plantin/Plantin MT Light.OTF') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plantin MT';
+  src: url('./fonts/Plantin/Plantin MT.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plantin MT';
+  src: url('./fonts/Plantin/Plantin MT Semibold.OTF') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plantin MT';
+  src: url('./fonts/Plantin/Plantin MT Bold.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ── Scribo Pro ───────────────────────────────────────────── */
+@font-face {
+  font-family: 'Scribo Pro';
+  src: url('./fonts/Scribo Pro/Scribo Brush Pro Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Scribo Pro Caps';
+  src: url('./fonts/Scribo Pro/Scribo Brush Pro Caps.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
