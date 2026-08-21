@@ -2,6 +2,6 @@ import WebFont from 'webfontloader';
 
 WebFont.load({
   google: {
-    families: ['Aboreto']
+    families: ['Aboreto','Arapey','Figtree']
   }
 });

@@ -13,7 +13,7 @@ import {
 
 const MAIN_COLS = ["Qualified","Reach","Aspirational"];
 const SKIP_COLS = ["Over Qualified","Qualified","Reach"]; // Aspirational exists but hidden
-const ROWS      = ["US-Based","Colombia/International"];
+const ROWS      = ["US-Based","Colombia / International"];
 
 // ── Data ─────────────────────────────────────────────────────
 const MAIN = [
@@ -34,23 +34,23 @@ const MAIN = [
   { id:13, status:"Reach",        row:"US-Based",               ladder:"Product/Project Mgmt", kanban:"todo",       salary:"$98K–$153K",         salaryMin:98000,  role:"Product Manager",                                   company:"Nava PBC",          loc:"Remote (FL-eligible)",               url:"https://job-boards.greenhouse.io/navapbc/jobs/4293670009",                                        note:"Civic tech nonprofit modernizing government digital services. 3+ years PM required. Florida on approved states list. Flexible leveling. Strong mission alignment." },
   { id:14, status:"Reach",        row:"US-Based",               ladder:"Product/Project Mgmt", kanban:"todo",       salary:"$100K–$108K",        salaryMin:100000, role:"Project Manager",                                   company:"DirectDefense",     loc:"Remote (US)",                        url:"https://careers.jobscore.com/careers/directdefense/jobs/project-manager-dJDxoG4i1mt6qDIect8AML",  note:"Cybersecurity managed services PM. Functional fit is real; domain is the gap. Coordination around security work, not performing it." },
   { id:15, status:"Reach",        row:"US-Based",               ladder:"Tech/Ed",              kanban:"todo",       salary:"$82K–$102K",         salaryMin:82100,  role:"Product Operations Manager",                        company:"Teachstone",        loc:"Remote (US)",                        url:"https://builtin.com/job/product-operations-manager/9253356",                                      note:"CLASS observation tool for K-12 teacher assessment. Direct line to PBIS behavioral data work. Verify still live before applying." },
-  // REACH · Colombia/International
-  { id:16, status:"Reach",        row:"Colombia/International", ladder:"Product/Project Mgmt", kanban:"todo",       salary:"TBD (est. $40–60K)", salaryMin:40000,  role:"Project Manager 3",                                 company:"Twilio",            loc:"Remote — Colombia",                  url:"https://job-boards.greenhouse.io/twilio/jobs/7818575",                                            note:"Colombian citizenship clears work authorization. Functional fit is real. Salary likely below Bogota lifestyle floor — confirm before applying." },
+  // REACH · Colombia / International
+  { id:16, status:"Reach",        row:"Colombia / International", ladder:"Product/Project Mgmt", kanban:"todo",       salary:"TBD (est. $40–60K)", salaryMin:40000,  role:"Project Manager 3",                                 company:"Twilio",            loc:"Remote — Colombia",                  url:"https://job-boards.greenhouse.io/twilio/jobs/7818575",                                            note:"Colombian citizenship clears work authorization. Functional fit is real. Salary likely below Bogota lifestyle floor — confirm before applying." },
   // ASPIRATIONAL · US-Based
   { id:17, status:"Aspirational", row:"US-Based",               ladder:"Product/Project Mgmt",               salary:"$140K–$209K",        salaryMin:140000, role:"Staff Technical Program Manager, AI Native",        company:"Life360",           loc:"Remote (US)",                        url:"https://job-boards.greenhouse.io/life360/jobs/8627517002",                                        note:"A rung between now and the EA Director of Operations role. 10+ years required. AI-native operating system, Claude agents. Mid-career waypoint." },
   { id:18, status:"Aspirational", row:"US-Based",               ladder:"Product/Project Mgmt",               salary:"$209K+",             salaryMin:209000, role:"Group Product Manager",                             company:"Ordergroove",       loc:"Remote (NYC HQ)",                    url:"https://www.ordergroove.com/jobs/?gh_jid=8357233002",                                             note:"Manages a team of PMs owning the Merchant Growth Pillar. People-management layer above IC PM — requires having already been a PM." },
   { id:19, status:"Aspirational", row:"US-Based",               ladder:"Gaming/Technical",                   salary:"$175K–$276K",        salaryMin:175600, role:"Head of Operations, Global Affairs",                company:"Electronic Arts",   loc:"Redwood City / LA / Seattle",        url:"https://jobs.ea.com/en_US/careers/JobDetail/Head-of-Operations-Global-Affairs/215799",            note:"10+ years operations + people leadership + corporate legal-ops. No LATAM or Spanish advantage. Marker for a different senior EA path vs. the Bogota operations role." },
   { id:20, status:"Aspirational", row:"US-Based",               ladder:"Gaming/Technical",                   salary:"$133K–$186K CAD",    salaryMin:100000, role:"Senior Lead Game Product Manager, EA SPORTS FC",    company:"Electronic Arts",   loc:"Vancouver, Canada (hybrid)",         url:"https://jobs.ea.com/en_US/careers/JobDetail/Senior-Lead-Game-Product-Manager-EA-Sports-FC/214892",note:"10 years formal PM required. Canada requires employer sponsorship. Skills roadmap more than a target — telemetry, forecasting, PM mentoring to build toward." },
-  // ASPIRATIONAL · Colombia/International
-  { id:21, status:"Aspirational", row:"Colombia/International", ladder:"Gaming/Technical",                   salary:"$75K–$115K (est.)",  salaryMin:75000,  role:"Director of Operations, Quality Verification",      company:"Electronic Arts",   loc:"Bogota, Colombia",                   url:"https://jobs.ea.com/en_US/careers/JobDetail/Director-of-Operations/212808",                       note:"8+ years QA/operations in gaming. On-site Bogota. Colombian citizenship is the work-auth advantage. Gaming operations leadership in your city. Galaxy next door." },
-  { id:22, status:"Aspirational", row:"Colombia/International", ladder:"Gaming/Technical",                   salary:"$104K–$142K CAD",    salaryMin:78000,  role:"Development Manager, EA SPORTS FC",                 company:"Electronic Arts",   loc:"Vancouver, Canada (hybrid)",         url:"https://jobs.ea.com/en_US/careers/JobDetail/Development-Manager/215637",                          note:"3+ years managing engineering/artist teams in Agile game development. Canada work authorization required. Technical production management — not the current track." },
+  // ASPIRATIONAL · Colombia / International
+  { id:21, status:"Aspirational", row:"Colombia / International", ladder:"Gaming/Technical",                   salary:"$75K–$115K (est.)",  salaryMin:75000,  role:"Director of Operations, Quality Verification",      company:"Electronic Arts",   loc:"Bogota, Colombia",                   url:"https://jobs.ea.com/en_US/careers/JobDetail/Director-of-Operations/212808",                       note:"8+ years QA/operations in gaming. On-site Bogota. Colombian citizenship is the work-auth advantage. Gaming operations leadership in your city. Galaxy next door." },
+  { id:22, status:"Aspirational", row:"Colombia / International", ladder:"Gaming/Technical",                   salary:"$104K–$142K CAD",    salaryMin:78000,  role:"Development Manager, EA SPORTS FC",                 company:"Electronic Arts",   loc:"Vancouver, Canada (hybrid)",         url:"https://jobs.ea.com/en_US/careers/JobDetail/Development-Manager/215637",                          note:"3+ years managing engineering/artist teams in Agile game development. Canada work authorization required. Technical production management — not the current track." },
 ];
 
 const PARKING = [
   { id:101, zone:"coach",   reason:"Career Coach", softStatus:"Reach",        track:"US-Based",               ladder:"AI Policy",            role:"External Affairs, US Federal",       company:"Anthropic",         salary:"$265K–$295K",  salaryMin:265000, loc:"Washington, DC",        url:"https://job-boards.greenhouse.io/anthropic/jobs/5382274008",                                      note:"Requires established Senate relationships — the hard wall. Application is light. Discuss with coach whether federal AI policy is the right DC ladder long-term. Apply anyway given light lift." },
   { id:102, zone:"coach",   reason:"Career Coach", softStatus:"Aspirational", track:"US-Based",               ladder:"Tech/Ed",              role:"Head of Content & Curriculum",       company:"Anthropic",         salary:"$290K–$435K",  salaryMin:290000, loc:"San Francisco / NYC",   url:"https://job-boards.greenhouse.io/anthropic/jobs/5288959008",                                      note:"Same team as the AI Fluency Lead — this is what that role grows into. Requires managing a team of content strategists. Not an application now. Discuss as a medium-term trajectory marker." },
   { id:103, zone:"coach",   reason:"Career Coach", softStatus:"Reach",        track:"US-Based",               ladder:"Consulting",           role:"Consultant, Experienced Hire",       company:"BCG",               salary:"Est. $175K+",  salaryMin:175000, loc:"DC / Summit NJ / Philly",url:"https://careers.bcg.com/global/en/job/54552/Consultant-Experienced-Hire-United-States",           note:"Case interview is the wall, not credentials. BCG DC is public-sector heavy. Discuss with coach: is case prep realistic given the year-end timeline?" },
-  { id:104, zone:"coach",   reason:"Career Coach", softStatus:"Reach",        track:"Colombia/International", ladder:"Consulting",           role:"Consultant, Colombia 2026",           company:"BCG",               salary:"Not posted",   salaryMin:0,      loc:"Bogota, Colombia",      url:"https://careers.bcg.com/global/en/job/55841/Consultant-Colombia-2026",                           note:"Requires active graduate enrollment — hard eligibility gate. Discuss: does an MBA or relevant master's make BCG Bogota a realistic medium-term target?" },
+  { id:104, zone:"coach",   reason:"Career Coach", softStatus:"Reach",        track:"Colombia / International", ladder:"Consulting",           role:"Consultant, Colombia 2026",           company:"BCG",               salary:"Not posted",   salaryMin:0,      loc:"Bogota, Colombia",      url:"https://careers.bcg.com/global/en/job/55841/Consultant-Colombia-2026",                           note:"Requires active graduate enrollment — hard eligibility gate. Discuss: does an MBA or relevant master's make BCG Bogota a realistic medium-term target?" },
   { id:105, zone:"longterm",reason:"Clearance",   softStatus:"Reach",        track:"US-Based",               ladder:"Consulting",           role:"AI Advisory Strategy Consultant",    company:"Deloitte",          salary:"$93K–$155K",   salaryMin:93100,  loc:"Arlington, VA",         url:"https://www.tommanatosjobs.com/JobDetail.aspx?j=86bcbc36-016d-4828-aad2-bcc49633db1f",            note:"Without clearance: one of the best DC matches — AI governance, responsible-use policy, translating tech for government clients. Active Secret clearance currently required." },
   { id:106, zone:"longterm",reason:"Clearance",   softStatus:"Aspirational", track:"US-Based",               ladder:"AI Policy",            role:"Latin America Intelligence Team Lead",company:"Peraton",           salary:"$135K–$216K",  salaryMin:135000, loc:"Washington, DC",        url:"https://www.tommanatosjobs.com/JobDetail.aspx?j=633f65dc-bc2c-4f3e-8586-c4e78b83bb9d",            note:"Without clearance: still aspirational — 12 years intel analysis required. The Latin America thread is real. Worth revisiting when financially cushioned." },
   { id:107, zone:"longterm",reason:"Closed",      softStatus:"Qualified",    track:"US-Based",               ladder:"Tech/Ed",              role:"Product Manager, Classwork",         company:"College Board",     salary:"$80K–$157K",   salaryMin:80000,  loc:"Remote (US)",           url:"https://collegeboard.wd1.myworkdayjobs.com/en-US/Careers",                                        note:"Was the cleanest fit in the entire search — JD written around the teacher-to-product transition. Set a job alert on their Workday; this team will hire again." },
@@ -65,12 +65,12 @@ const SKIPPED = [
   { id:201, col:"Over Qualified", row:"US-Based",               ladder:"Government Affairs",   role:"Government Affairs Analyst",                   company:"MetLife",             salary:"$62,100–$80,000",   salaryMin:62100,  loc:"Washington, DC",         skipReason:"Below floor; entry-level admin support, overqualified on experience",           url:"https://www.tommanatosjobs.com/JobDetail.aspx?j=13cde8bf-bec4-45e6-ba99-8ab3b5e4b249" },
   { id:202, col:"Qualified",      row:"US-Based",               ladder:"Gaming/Technical",     role:"Guerrilla Marketing Associate",                company:"Underdog Sports",     salary:"$75K–$100K",        salaryMin:75000,  loc:"Remote",                 skipReason:"Wrong function; company tracked as cultural interest instead",                  url:"https://job-boards.greenhouse.io/underdog/jobs/4719643005" },
   { id:203, col:"Qualified",      row:"US-Based",               ladder:"Tech/Ed",              role:"Senior Program Officer, K-12 Field Readiness", company:"Gates Foundation",    salary:"$190K–$294K",       salaryMin:190100, loc:"Seattle, WA",            skipReason:"11-month limited term; grantmaking portfolio management experience absent",     url:"" },
-  { id:204, col:"Qualified",      row:"Colombia/International", ladder:"Gaming/Technical",     role:"EA SPORTS Academy — Game Maker",               company:"Electronic Arts",     salary:"Not posted",        salaryMin:0,      loc:"Vancouver, Canada",      skipReason:"12-month term program; likely below salary floor; Canada requires sponsorship", url:"https://jobs.ea.com/en_US/careers/JobDetail/Assoc-DM-II/215742" },
+  { id:204, col:"Qualified",      row:"Colombia / International", ladder:"Gaming/Technical",     role:"EA SPORTS Academy — Game Maker",               company:"Electronic Arts",     salary:"Not posted",        salaryMin:0,      loc:"Vancouver, Canada",      skipReason:"12-month term program; likely below salary floor; Canada requires sponsorship", url:"https://jobs.ea.com/en_US/careers/JobDetail/Assoc-DM-II/215742" },
   { id:205, col:"Reach",          row:"US-Based",               ladder:"Government Affairs",   role:"Director, LAC Policy Strategy",                company:"Visa",                salary:"$163K–$261K",       salaryMin:163500, loc:"Miami, FL",              skipReason:"Payments experience listed as essential; Miami climate fails bar",              url:"" },
   { id:206, col:"Reach",          row:"US-Based",               ladder:"Tech/Ed",              role:"Proposal Manager",                             company:"Khan Academy",        salary:"$96,800–$121,000",  salaryMin:96800,  loc:"Remote (US)",            skipReason:"Grant writing and RFP management experience absent",                           url:"https://job-boards.greenhouse.io/khanacademy/jobs/8056270" },
   { id:207, col:"Reach",          row:"US-Based",               ladder:"Product/Project Mgmt", role:"Project Manager, Ubuntu Embedded Systems",     company:"Canonical",           salary:"Not posted",        salaryMin:0,      loc:"Remote (Americas/EMEA)", skipReason:"Linux/embedded systems domain too specialized",                                url:"https://canonical.com/careers/2808065" },
   { id:208, col:"Reach",          row:"US-Based",               ladder:"AI Policy",            role:"Technical Policy Researcher",                  company:"Irregular",           salary:"Not posted",        salaryMin:0,      loc:"On-site (unspecified)",  skipReason:"ML engineering depth required for AI security research",                       url:"https://jobs.ashbyhq.com/Irregular/69966779-e3e7-4ffa-a691-329b86dbf53d" },
-  { id:209, col:"Reach",          row:"Colombia/International", ladder:"Consulting",           role:"AI Tech Architect",                            company:"BCG Platinion",       salary:"Not posted",        salaryMin:0,      loc:"Bogotá & Santiago",      skipReason:"Python/ML engineering stack outside background",                               url:"https://careers.bcg.com/global/en/job/58697" },
+  { id:209, col:"Reach",          row:"Colombia / International", ladder:"Consulting",           role:"AI Tech Architect",                            company:"BCG Platinion",       salary:"Not posted",        salaryMin:0,      loc:"Bogotá & Santiago",      skipReason:"Python/ML engineering stack outside background",                               url:"https://careers.bcg.com/global/en/job/58697" },
 ];
 
 // ── Root ─────────────────────────────────────────────────────
@@ -105,7 +105,7 @@ export default function JobTracker() {
           <button key={v} onClick={() => setView(v)} style={{
             ...STYLES.tab,
             ...STYLES.tabLabel,
-            borderBottom: view===v ? `2.5px solid ${COLORS.TEXT}` : "2.5px solid transparent",
+            borderBottom: view===v ? `7px solid ${COLORS.BORDER}` : ".5px solid transparent",
             color: view===v ? COLORS.TEXT : COLORS.TEXT3,
             fontWeight: view===v ? 700 : 400,
           }}>{lbl}</button>
@@ -114,7 +114,7 @@ export default function JobTracker() {
 
       {/* Ladder legend */}
       <div style={STYLES.legendContainer}>
-        <span style={STYLES.legendLabel}>LADDER</span>
+        <span style={STYLES.legendLabel}>FIELD:</span>
         {Object.entries(LC).map(([name,{c}]) => (
           <div key={name} style={{ display:"flex", alignItems:"center", gap:5 }}>
             <div style={{ width:8, height:8, borderRadius:2, background:c }} />
@@ -166,7 +166,7 @@ export default function JobTracker() {
                       const sc = SC[job.status]||SC.Qualified;
                       const nxt = KNEXT[col]; const prv = KPREV[col];
                       return (
-                        <div key={job.id} style={{ ...STYLES.card, borderLeft:`4px solid ${lc.c}` }}>
+                        <div key={job.id} style={{ ...STYLES.card, borderRight:`6px solid ${lc.c}`, borderLeft:`6px solid ${lc.c}` }}>
                           <div style={{ ...STYLES.cardClickable, padding:"9px 11px" }}>
                             <div style={STYLES.kanbanRole}>{job.role}</div>
                             <div style={STYLES.kanbanCompany}>{job.company}</div>
@@ -220,7 +220,7 @@ function Grid({ jobs, cols, rows, isSkipped, expanded, onToggle }) {
           return (
             <div key={col} style={{...STYLES.gridColHeaderCell, background:sc.hbg }}>
               <span style={{...STYLES.gridColHeader, color:sc.c }}>{col}</span>
-              <span style={{...STYLES.gridColCount, color:sc.c }}>{count}</span>
+              <span style={{...STYLES.gridColCount, background:sc.c }}>{count}</span>
             </div>
           );
         })}
@@ -261,7 +261,7 @@ function Grid({ jobs, cols, rows, isSkipped, expanded, onToggle }) {
 function GridCard({ job, expanded, onToggle }) {
   const lc = LC[job.ladder]||{c:"#6b7280"};
   return (
-    <div style={{...STYLES.card, borderLeft:`4px solid ${lc.c}`}}>
+    <div style={{...STYLES.card, borderRight:`6px solid ${lc.c}`, borderLeft:`6px solid ${lc.c}`}}>
       <div onClick={() => onToggle(job.id)} style={STYLES.cardClickable}>
         <div style={STYLES.cardRole}>{job.role}</div>
         <div style={STYLES.cardCompany}>{job.company}</div>
@@ -285,7 +285,7 @@ function GridCard({ job, expanded, onToggle }) {
 function SkippedCard({ job }) {
   const lc = LC[job.ladder]||{c:"#6b7280"};
   return (
-    <div style={{...STYLES.skippedCard, borderLeft:`4px solid ${lc.c}`}}>
+    <div style={{...STYLES.skippedCard, borderRight: `6px solid ${lc.c}`, borderLeft:`6px solid ${lc.c}`}}>
       <div style={STYLES.cardRole}>{job.role}</div>
       <div style={STYLES.cardCompany}>{job.company} · {job.salary}</div>
       <div style={STYLES.cardLocation}>{job.loc}</div>
@@ -313,7 +313,7 @@ function ParkingZone({ label, sub, jobs, expanded, onToggle }) {
           const rc = RC[job.reason]||RC["Closed"];
           const isOpen = expanded === job.id;
           return (
-            <div key={job.id} style={{...STYLES.card, borderLeft:`4px solid ${lc.c}`}}>
+            <div key={job.id} style={{...STYLES.card, borderRight:`6px solid ${lc.c}`, borderLeft:`6px solid ${lc.c}`}}>
               <div onClick={() => onToggle(job.id)} style={{ padding:"9px 12px", cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:8 }}>
                 <div style={{ flex:1 }}>
                   <div style={{ display:"flex", alignItems:"center", gap:5, flexWrap:"wrap", marginBottom:3 }}>
