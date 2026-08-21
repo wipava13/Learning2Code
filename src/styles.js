@@ -30,7 +30,7 @@ export const STATUS_COLORS = {
 // ── Row Header Colors ────────────────────────────────────────
 export const ROW_COLORS = {
   "US-Based": { c: "#F0F0F0", hbg: "#1A1A1A" },
-  "Colombia/International": { c: "#F0F0F0", hbg: "#1A1A1A" },
+  "Colombia / International": { c: "#F0F0F0", hbg: "#1A1A1A" },
 };
 
 // ── Kanban Column Colors ────────────────────────────────────
