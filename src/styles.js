@@ -5,8 +5,8 @@ export const COLORS = {
   SURF2: "#222222",
   BORDER: "#2a2a2a",
   TEXT: "#f0f0f0",
-  TEXT2: "#9ca3af",
-  TEXT3: "#4b5563",
+  TEXT2: "#c5c9ca",
+  TEXT3: "#939aa2",
 };
 
 // ── Career Ladder Colors ─────────────────────────────────────
@@ -65,7 +65,7 @@ export const SPACING = {
 export const STYLES = {
   // ═══ CONTAINER & LAYOUT ═══
   container: {
-    fontFamily: "Aboreto",
+    fontFamily: "Adobe Caslon Pro",
     background: COLORS.BG,
     minHeight: "100vh",
     color: COLORS.TEXT,
@@ -80,17 +80,17 @@ export const STYLES = {
 
   headerTitle: {
     margin: 0,
-    fontSize: 18,
+    fontSize:50,
     fontWeight: 700,
-    letterSpacing: "-0.3px",
+    letterSpacing: "0.5px",
     color: COLORS.TEXT,
+    fontFamily: 'Mrs. Eaves Small Caps',
   },
 
   pageSubtitle: {
-    fontSize: 11,
+    fontSize: 16,
     color: COLORS.TEXT3,
     margin: "3px 0 0",
-    fontFamily: "Figtree",
   },
 
   // ═══ TABS ═══
@@ -109,12 +109,12 @@ export const STYLES = {
   },
 
   tabLabel: {
-    fontSize: 13,
+    fontSize: 16,
     fontWeight: 400,
   },
 
   tabLabelActive: {
-    fontSize: 13,
+    fontSize: 16,
     fontWeight: 700,
   },
 
@@ -130,14 +130,14 @@ export const STYLES = {
   },
 
   legendLabel: {
-    fontSize: 10,
+    fontSize: 14,
     color: COLORS.TEXT3,
     fontWeight: 600,
     letterSpacing: "0.06em",
   },
 
   legendItemName: {
-    fontSize: 11,
+    fontSize: 14,
     color: COLORS.TEXT2,
   },
 
@@ -149,13 +149,13 @@ export const STYLES = {
   },
 
   sectionDesc: {
-    fontSize: 12,
+    fontSize: 14,
     color: COLORS.TEXT3,
     margin: "0 0 16px",
   },
 
   sectionDescKanban: {
-    fontSize: 12,
+    fontSize: 14,
     color: COLORS.TEXT3,
     margin: "0 0 18px",
   },
@@ -259,40 +259,42 @@ export const STYLES = {
   },
 
   cardRole: {
-    fontSize: 11,
+    fontSize: 16,
     fontWeight: 600,
     color: COLORS.TEXT,
     lineHeight: 1.3,
     marginBottom: 3,
+    fontFamily: "Mrs. Eaves Small Caps",
   },
 
   cardCompany: {
-    fontSize: 10,
+    fontSize: 14,
     color: COLORS.TEXT2,
     marginBottom: 2,
   },
 
   cardSalary: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: 600,
     marginBottom: 5,
   },
 
   cardLocation: {
-    fontSize: 10,
+    fontSize: 12,
     color: COLORS.TEXT3,
     marginBottom: 5,
   },
 
   cardNote: {
-    fontSize: 11,
+    fontSize: 12,
     color: COLORS.TEXT2,
     lineHeight: 1.55,
     margin: "0 0 8px",
+    fontStyle: "normal",
   },
 
   cardToggleIcon: {
-    fontSize: 9,
+    fontSize: 10,
     color: COLORS.TEXT3,
   },
 
@@ -334,7 +336,7 @@ export const STYLES = {
   },
 
   kanbanRole: {
-    fontSize: 11,
+    fontSize: 16,
     fontWeight: 700,
     color: COLORS.TEXT,
     marginBottom: 2,
@@ -343,31 +345,31 @@ export const STYLES = {
   },
 
   kanbanCompany: {
-    fontSize: 10,
+    fontSize: 14,
     color: COLORS.TEXT2,
     marginBottom: 2,
   },
 
   kanbanSalary: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: 600,
     marginBottom: 7,
   },
 
   kanbanStatus: {
-    fontSize: 9,
+    fontSize: 14,
     fontWeight: 700,
     padding: "1px 5px",
     borderRadius: 8,
   },
 
   kanbanStatusLabel: {
-    fontSize: 9,
+    fontSize: 14,
     color: COLORS.TEXT3,
   },
 
   kanbanButton: {
-    fontSize: 9,
+    fontSize: 14,
     fontWeight: 700,
     padding: "3px 0",
     borderRadius: 4,
@@ -395,6 +397,7 @@ export const STYLES = {
 
   parkingToggleSub: {
     fontSize: 11,
+    color: "#AAAAAA",
   },
 
   parkingContainer: {
@@ -418,13 +421,13 @@ export const STYLES = {
   },
 
   parkingZoneTitle: {
-    fontSize: 12,
+    fontSize: 20,
     fontWeight: 700,
     color: COLORS.TEXT,
   },
 
   parkingZoneSubtitle: {
-    fontSize: 10,
+    fontSize: 14,
     color: COLORS.TEXT3,
   },
 
