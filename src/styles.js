@@ -4,6 +4,7 @@ export const COLORS = {
   SURF: "#1a1a1a",
   SURF2: "#222222",
   BORDER: "#2a2a2a",
+  BORDER2: "#00AA00",
   TEXT: "#f0f0f0",
   TEXT2: "#c5c9ca",
   TEXT3: "#939aa2",
@@ -11,7 +12,7 @@ export const COLORS = {
 
 // ── Career Ladder Colors ─────────────────────────────────────
 export const LADDER_COLORS = {
-  "Tech/Ed": { c: "#ffdf00" },
+  "Tech/Ed": { c: "#ffb612" },
   "AI Policy": { c: "#00b100" },
   "Government Affairs": { c: "#c457f3" },
   "Product/Project Mgmt": { c: "#FF4040" },
@@ -65,7 +66,7 @@ export const SPACING = {
 export const STYLES = {
   // ═══ CONTAINER & LAYOUT ═══
   container: {
-    fontFamily: "Adobe Caslon Pro",
+    fontFamily: "Scribo Pro",
     background: COLORS.BG,
     minHeight: "100vh",
     color: COLORS.TEXT,
@@ -73,36 +74,41 @@ export const STYLES = {
 
   // ═══ HEADER ═══
   header: {
-    background: "#000",
+    background: COLORS.BG,
     padding: `16px ${SPACING.xxl}px`,
-    borderBottom: `1px solid ${COLORS.BORDER}`,
+    borderBottom: `10px solid #FFB612`,
   },
 
   headerTitle: {
     margin: 0,
     fontSize:50,
-    fontWeight: 700,
     letterSpacing: "0.5px",
     color: COLORS.TEXT,
-    fontFamily: 'Mrs. Eaves Small Caps',
+    fontFamily: 'Brothers',
+    fontStyle: 'bold',
+    margin: "3px 0 0",
   },
 
   pageSubtitle: {
-    fontSize: 16,
-    color: COLORS.TEXT3,
+    fontSize: 50,
+    letterSpacing: "0.5px",
+    color: COLORS.TEXT,
+    fontFamily: 'Adobe Caslon Pro',
+    fontStyle: 'normal',
     margin: "3px 0 0",
+    fontWeight: 400,
   },
 
   // ═══ TABS ═══
   tabs: {
-    background: "#111",
-    borderBottom: `1px solid ${COLORS.BORDER}`,
-    padding: `0 ${SPACING.xxl}px`,
+    background: COLORS.BG,
+    borderBottom: `10px solid #0000FF`,
+    padding: `1px ${SPACING.xxl}px`,
     display: "flex",
   },
 
   tab: {
-    padding: "10px 18px",
+    padding: "10px 20px",
     border: "none",
     background: "transparent",
     cursor: "pointer",
@@ -121,23 +127,23 @@ export const STYLES = {
   // ═══ LEGEND ═══
   legendContainer: {
     background: "#111",
-    padding: `7px ${SPACING.xxl}px`,
-    borderBottom: `1px solid ${COLORS.BORDER}`,
+    padding: `10px ${SPACING.xxl}`,
+    borderBottom: `10px solid ${COLORS.BORDER}`,
     display: "flex",
     flexWrap: "wrap",
-    gap: 16,
+    gap: 20,
     alignItems: "center",
   },
 
   legendLabel: {
-    fontSize: 14,
+    fontSize: 16,
     color: COLORS.TEXT3,
     fontWeight: 600,
     letterSpacing: "0.06em",
   },
 
   legendItemName: {
-    fontSize: 14,
+    fontSize: 16,
     color: COLORS.TEXT2,
   },
 
@@ -149,7 +155,7 @@ export const STYLES = {
   },
 
   sectionDesc: {
-    fontSize: 14,
+    fontSize: 16,
     color: COLORS.TEXT3,
     margin: "0 0 16px",
   },
