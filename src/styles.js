@@ -150,7 +150,7 @@ export const STYLES = {
   // ═══ MAIN CONTENT ═══
   mainContent: {
     padding: `${SPACING.xl}px ${SPACING.xxl}px`,
-    maxWidth: 1200,
+    maxWidth: 12000,
     margin: "0 auto",
   },
 
@@ -265,43 +265,47 @@ export const STYLES = {
   },
 
   cardRole: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 600,
     color: COLORS.TEXT,
     lineHeight: 1.3,
     marginBottom: 3,
-    fontFamily: "Mrs. Eaves Small Caps",
+    fontFamily: "Figtree",
   },
 
   cardCompany: {
-    fontSize: 14,
+    fontSize: 18,
     color: COLORS.TEXT2,
     marginBottom: 2,
+    fontFamily: "Plantin MT",
   },
 
   cardSalary: {
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: 600,
     marginBottom: 5,
+    fontFamily: "Plantin MT",
   },
 
   cardLocation: {
-    fontSize: 12,
+    fontSize: 16,
     color: COLORS.TEXT3,
     marginBottom: 5,
+    fontFamily: "Plantin MT",
   },
 
   cardNote: {
-    fontSize: 12,
+    fontSize: 16,
     color: COLORS.TEXT2,
     lineHeight: 1.55,
     margin: "0 0 8px",
     fontStyle: "normal",
+    fontFamily: "Figtree",
   },
 
   cardToggleIcon: {
     fontSize: 10,
-    color: COLORS.TEXT3,
+    color: COLORS.TEXT3
   },
 
   // ═══ KANBAN ═══
@@ -477,11 +481,12 @@ export const STYLES = {
 
   // ═══ BUTTONS & LINKS ═══
   primaryButton: {
-    fontSize: 10,
-    fontWeight: 700,
+    fontSize: 15,
+    fontFamily: "Bookmania",
+    fontWeight: 400,
     padding: "4px 10px",
     color: "#000",
-    borderRadius: 4,
+    borderRadius: 40,
     textDecoration: "none",
   },
 };
